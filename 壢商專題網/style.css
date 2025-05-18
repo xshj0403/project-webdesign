@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
+
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('./font/behance-65a9ae29a5cd4.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    transition: all .5s ease;
+}
+
+:root {
+    --yellow: #fff9d1;
+    --orange: #ffe8d1;
+    --green: #69f3ca;
+    --blue: #50a6c5;
+    --dark-blue: #005b7c;
+    --purple: #f9e4ff;
+    --colorb: #000;
+    --colorw: #fff;
+}
+
+.chinese {
+    font-family: "Noto Sans JP", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.english {
+    font-family: 'MyCustomFont', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+
+body{
+    background: url(img/body-img.png) center center no-repeat;
+    background-size: cover;
+    object-fit: cover;
+}
+/* navbar */
+.navbar {
+    background: linear-gradient(45deg, var(--yellow), var(--orange), var(--purple));
+  padding: 20px 0 !important;
+}
+.navbar-brand{
+    margin-left: 1.2em;
+    color: rgba(0,0,0,0.5);
+}
+.nav-link{
+    color: rgba(0,0,0,0.5);
+    text-shadow: 0 0 10px var(--yellow);
+    font-size: 1.1em;
+    margin: 0 3em;
+    font-weight: bold;
+    position: relative;
+}
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    width: 100%;
+    height: 2px;
+    background-color: var(--dark-blue);
+    transition: transform 0.3s ease;
+}
+.nav-link:hover,.navbar-brand:hover{
+    color: var(--dark-blue);
+}
+.nav-link:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+@media screen and (max-width: 992px){
+    .nav-link{
+        text-align: center;
+        padding: 1em 0;
+    }
+}
+
+
+/* sec1 */
+.sec1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.title{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5em; /* 控制兩行之間的距離 */
+}
+
+.title-line {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 10px; /* 控制單行中文字之間的距離 */
+}
+
+.title-line span {
+  font-size: 7em;
+  font-weight: bolder;
+  color: var(--green);
+  display: inline-block;
+  animation: animate 2s infinite;
+  line-height: 1; /* 消除行高影響 */
+}
+
+.title-line:nth-child(1) span{
+    font-size: 5em;
+}
+
+.title-btn {
+  /* margin-top: 10px; */
+  display: flex;
+  justify-content: center;
+}
+
+.mybtn {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2em;
+  color: var(--blue);
+  text-decoration: none;
+  margin-top: 2.5em;
+  /* z-index: 1; */
+}
+
+.mybtn:hover {
+  color: var(--green);
+  font-size: 2.1em;
+  transform: translateY(15px);
+}
+
+
+@keyframes animate {
+    0%{
+        color: var(--green);
+        transform: translateY(0);
+        margin-left: 0;
+    }
+    25%{
+        color: var(--blue);
+        transform: translateY(-15px);
+        margin-left: 15px;
+        text-shadow: 0 10px 5px rgb(80, 166, 197,0.5);
+    }
+    0%{
+        color: var(--green);
+        transform: translateY(0);
+    }
+}
+
+/* sec2 */
+.sec2{
+    margin: 30px 0;
+}
+.sec2 .col-lg-3{
+    padding: 10px;
+}
+.mycard{
+    width: 300px;
+    height: 500px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 5px 10px 10px rgb(80, 166, 197,0.3);
+    overflow: hidden;
+}
+.mycard h2{
+    letter-spacing: 2px;
+    color: var(--dark-blue);
+    text-shadow: 0 0 10px var(--colorw);
+    z-index: 10;
+}
+.mycard::after{
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    right: -50px;
+    bottom: -100px;
+    background-color: var(--blue);
+    border-radius: 50%;
+    opacity: 0.3;
+    transition: opacity 0.5s ease-in,transform 0.8s ease;
+}
+.mycard::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;top: 0;
+    background: rgb(255,255,255,0.7);
+    border-radius: 10px;
+    transition: 1s;
+}
+.mycard:hover{
+    transform: translateY(10px);
+    box-shadow: none;
+}
+.mycard:hover h2{
+    color: var(--colorw);
+}
+.mycard:hover::before{
+    background: #005b7c81;
+}
+.mycard:hover::after{
+    background-color: var(--blue);
+    opacity: 0;
+    transform: scale(15);
+    bottom: 0;
+}
+/* 背景圖片 */
+.mycard#card1{
+    background: url(img/card1.png) center center no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+}
+.mycard#card2{
+    background: url(img/card2.png) center center no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+}
+.mycard#card3{
+    background: url(img/card3.png) center center no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+}
+.mycard#card4{
+    background: url(img/card4.png) center center no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+}
+@media (max-width: 768px) {
+  .mycard {
+    margin: 0 auto;
+  }
+}
