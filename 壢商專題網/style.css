@@ -13,16 +13,15 @@
     list-style: none;
     transition: all .5s ease;
 }
+a{
+    text-decoration: none;
+}
 
 :root {
-    --yellow: #fff9d1;
-    --orange: #ffe8d1;
-    --green: #69f3ca;
-    --blue: #50a6c5;
-    --dark-blue: #005b7c;
-    --purple: #f9e4ff;
-    --colorb: #000;
-    --colorw: #fff;
+    --dark-red: #e65c50;
+    --light-red: #faccc3;
+    --dark-blue: #135675;
+    --light-blue: #b1d6d6;
 }
 
 .chinese {
@@ -40,217 +39,205 @@
     font-variation-settings: "wdth" 100;
 }
 
-body{
-    background: url(img/body-img.png) center center no-repeat;
-    background-size: cover;
-    object-fit: cover;
-}
+
 /* navbar */
-.navbar {
-    background: linear-gradient(45deg, var(--yellow), var(--orange), var(--purple));
-  padding: 20px 0 !important;
+.menu-container{
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10;
 }
-.navbar-brand{
-    margin-left: 1.2em;
-    color: rgba(0,0,0,0.5);
-}
-.nav-link{
-    color: rgba(0,0,0,0.5);
-    text-shadow: 0 0 10px var(--yellow);
-    font-size: 1.1em;
-    margin: 0 3em;
-    font-weight: bold;
-    position: relative;
-}
-.nav-link::after {
-    content: "";
+.toggler{
     position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%) scaleX(0);
-    transform-origin: center;
-    width: 100%;
-    height: 2px;
-    background-color: var(--dark-blue);
-    transition: transform 0.3s ease;
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    opacity: 0;
+    z-index: 100;
+    cursor: pointer;
 }
-.nav-link:hover,.navbar-brand:hover{
-    color: var(--dark-blue);
-}
-.nav-link:hover::after {
-    transform: translateX(-50%) scaleX(1);
-}
-@media screen and (max-width: 992px){
-    .nav-link{
-        text-align: center;
-        padding: 1em 0;
-    }
-}
-
-
-/* sec1 */
-.sec1 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-.title{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap: 5em; /* 控制兩行之間的距離 */
-}
-
-.title-line {
-  display: flex;
-  justify-content: center;
-  flex-wrap: nowrap;
-  gap: 10px; /* 控制單行中文字之間的距離 */
-}
-
-.title-line span {
-  font-size: 7em;
-  font-weight: bolder;
-  color: var(--green);
-  display: inline-block;
-  animation: animate 2s infinite;
-  line-height: 1; /* 消除行高影響 */
-}
-
-.title-line:nth-child(1) span{
-    font-size: 5em;
-}
-
-.title-btn {
-  /* margin-top: 10px; */
-  display: flex;
-  justify-content: center;
-}
-
-.mybtn {
-  position: relative;
-  display: inline-block;
-  text-align: center;
-  font-weight: bold;
-  font-size: 2em;
-  color: var(--blue);
-  text-decoration: none;
-  margin-top: 2.5em;
-  /* z-index: 1; */
-}
-
-.mybtn:hover {
-  color: var(--green);
-  font-size: 2.1em;
-  transform: translateY(15px);
-}
-
-
-@keyframes animate {
-    0%{
-        color: var(--green);
-        transform: translateY(0);
-        margin-left: 0;
-    }
-    25%{
-        color: var(--blue);
-        transform: translateY(-15px);
-        margin-left: 15px;
-        text-shadow: 0 10px 5px rgb(80, 166, 197,0.5);
-    }
-    0%{
-        color: var(--green);
-        transform: translateY(0);
-    }
-}
-
-/* sec2 */
-.sec2{
-    margin: 30px 0;
-}
-.sec2 .col-lg-3{
-    padding: 10px;
-}
-.mycard{
-    width: 300px;
-    height: 500px;
-    position: relative;
+.hamburger{
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
-    box-shadow: 5px 10px 10px rgb(80, 166, 197,0.3);
-    overflow: hidden;
-}
-.mycard h2{
-    letter-spacing: 2px;
-    color: var(--dark-blue);
-    text-shadow: 0 0 10px var(--colorw);
     z-index: 10;
 }
-.mycard::after{
+.hamburger::before{
     content: '';
-    position: absolute;
-    width: 100px;
-    height: 100px;
+    position: fixed;
+    top: -50px;
     right: -50px;
-    bottom: -100px;
-    background-color: var(--blue);
+    width: 150px;
+    height: 150px;
+    background-color: var(--dark-blue);
     border-radius: 50%;
-    opacity: 0.3;
-    transition: opacity 0.5s ease-in,transform 0.8s ease;
+    z-index: -10;
+    border: var(--light-blue) 5px solid;
 }
-.mycard::before{
+.hamburger div{
+    position: absolute;
+    width: 50%;
+    height: 3px;
+    border-radius: 1.5px;
+    background-color: var(--light-blue);
+    transition: .4s;
+}
+.hamburger div::before,.hamburger div::after{
     content: '';
     position: absolute;
     width: 100%;
+    height: 3px;
+    border-radius: 1.5px;
+    background-color: var(--light-blue);
+    transition: .4s;
+}
+.hamburger div::before{
+    top: -10px;
+}
+.hamburger div::after{
+    top: 10px;
+}
+.toggler:checked + .hamburger div{
+    transform: rotate(135deg);
+}
+.toggler:checked:hover + .hamburger div{
+    transform: rotate(225deg);
+}
+.toggler:checked + .hamburger div::before,
+.toggler:checked + .hamburger div::after{
+    transform: rotate(90deg);
+    top: 0;
+}
+
+.toggler:checked ~ .menu{
+    visibility: visible;
+}
+.toggler:checked ~ .menu .menu-inner{
+    transform: translateX(50%) translateY(-50%);
+    opacity: 1;
+}
+
+.menu{
+    position: fixed;
+    top: 0;
+    right: 0;
+    visibility: hidden;
+    transition: .6s;
+    width: 100vw;
+    height: 100vh;
+}
+.menu .menu-inner{
+    position: absolute;
+    width: 100%;
     height: 100%;
-    left: 0;top: 0;
-    background: rgb(255,255,255,0.7);
-    border-radius: 10px;
-    transition: 1s;
-}
-.mycard:hover{
-    transform: translateY(10px);
-    box-shadow: none;
-}
-.mycard:hover h2{
-    color: var(--colorw);
-}
-.mycard:hover::before{
-    background: #005b7c81;
-}
-.mycard:hover::after{
-    background-color: var(--blue);
+    top: 50%;
+    right: 50%;
+    transform: translateX(150%) translateY(-50%);
+    background-color: rgb(177, 214, 214,.9);
+    transition: .6s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     opacity: 0;
-    transform: scale(15);
-    bottom: 0;
 }
-/* 背景圖片 */
-.mycard#card1{
-    background: url(img/card1.png) center center no-repeat;
+.menu ul,.menu li{
+    margin: 0;
+    padding: 0;
+}
+.menu a{
+    font-size: 1.5rem;
+    margin: 2rem 0;
+    display: inline-block;
+    font-weight: 550;
+    color: var(--dark-blue);
+}
+.menu a:hover{
+    color: var(--dark-red);
+}
+
+
+/* banner */
+.banner{
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    background: url(img/bc.png) no-repeat center center;
     background-size: cover;
-    border-radius: 10px;
+    position: relative;
 }
-.mycard#card2{
-    background: url(img/card2.png) center center no-repeat;
+.banner-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+.banner-content span.small{
+    font-size: 2.5em;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: #555;
+}
+.banner-content h1{
+    font-size: 8em;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    line-height: 2em;
+}
+.banner-content h1 span{
+    position: relative;
+}
+.banner-content h1 span::after{
+    content: '';
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    left: 35%;
     background-size: cover;
-    border-radius: 10px;
 }
-.mycard#card3{
-    background: url(img/card3.png) center center no-repeat;
-    background-size: cover;
-    border-radius: 10px;
+.banner-content h1 span:nth-child(1):after{
+    background: url(img/banner-small1.png) no-repeat center center;
 }
-.mycard#card4{
-    background: url(img/card4.png) center center no-repeat;
-    background-size: cover;
-    border-radius: 10px;
+.banner-content h1 span:nth-child(2):after{
+    background: url(img/banner-small2.png) no-repeat center center;
 }
-@media (max-width: 768px) {
-  .mycard {
-    margin: 0 auto;
-  }
+.banner-content h1 span:nth-child(3):after{
+    background: url(img/banner-small3.png) no-repeat center center;
 }
+.banner-content h2{
+    font-size: 4em;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+}
+.banner-content a{
+    font-size: 1.8em;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    margin-top: 2em;
+    text-align: center;
+    color: #888;
+}
+.bottom{
+    position: absolute;
+    left: 50px;
+    bottom: 10px;
+}
+.bottom p{
+    font-size: 1.2em;
+    letter-spacing: 0.3em;
+    color: #888;
+    font-weight: 600;
+}
+
+/* conetent */
