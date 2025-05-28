@@ -22,6 +22,7 @@ a{
     --light-red: #faccc3;
     --dark-blue: #135675;
     --light-blue: #b1d6d6;
+    --title: #65baba;
 }
 
 .chinese {
@@ -38,7 +39,10 @@ a{
     font-style: normal;
     font-variation-settings: "wdth" 100;
 }
+body{
+    background-color: #faebe8;
 
+}
 
 /* navbar */
 .menu-container{
@@ -170,7 +174,7 @@ a{
     width: 100%;
     height: 100vh;
     flex-direction: column;
-    background: url(img/bc.png) no-repeat center center;
+    background: url(img/bc.png) no-repeat center center,#fff;
     background-size: cover;
     position: relative;
 }
@@ -241,3 +245,132 @@ a{
 }
 
 /* conetent */
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh !important;
+    background: url(img/business.png) no-repeat right top;
+    position: relative;
+}
+.slogan{
+    position: absolute;
+    left: 50px;
+    top: 0;
+    width: 400px;
+}
+.slogan::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background-color: #555;
+}
+.slogan p{
+    padding: 40px 30px 0;
+    color: #555;
+    font-size: 1.2em;
+    font-weight: 600;
+    letter-spacing: 5px;
+    margin: 0;
+}
+.content h1{
+    font-size: 3.5em;
+    font-weight: 800;
+    letter-spacing: 5px;
+    margin-top: 10px;
+}
+.swiper {
+    width: 90%;
+    max-width: 1200px;
+    padding: 40px 10px 60px;
+}
+section{
+    position: relative;
+    overflow: visible;
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.bg{
+    position: absolute;
+    content: '';
+    width: 98%;
+    height: 150px;
+    border-radius: 20px;
+    background-color: #f2f2f2;
+    bottom: 20px;
+}
+.swiper-button-next,
+.swiper-button-prev {
+    color: #fff;
+    text-shadow: 0 0 10px #fff;
+}
+.project-item{
+    color: #fff;
+    padding: 0  0 35px;
+    border-radius: 10px;
+    flex-direction: column;
+    background: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: visible !important;
+    box-shadow: 0 5px 10px #999;
+    transition: .5s ease;
+}
+.project-item:hover{
+    box-shadow: 0 5px 0px #999;
+    transform: scale(1.05);
+}
+.right-top{
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    z-index: 1000;
+    width: 50px;
+}
+.project-image{
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.project-image img{
+    width: 100%;
+    height: 250px;
+    border-radius: 10px;
+}
+/* .project-item::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background: url(img/card-small1.png) no-repeat center center;
+} */
+.project-body{
+    padding: 12px 20px 0;
+    position: relative;
+}
+.project-title{
+    color: #65baba;
+    letter-spacing: 7px;
+    font-size: 1.4em;
+    font-weight: 800;
+}
+.project-content{
+    font-size: 0.8em;
+    color: #555;
+    font-weight: 600;
+    margin: 8px 0;
+    letter-spacing: 5px;
+}
+.more{
+    color: #65baba;
+    position: absolute;
+    right: 40px;
+}
