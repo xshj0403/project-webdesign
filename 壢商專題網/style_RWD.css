@@ -1,0 +1,91 @@
+@media screen and (max-width: 992px){
+    .toggler{
+        width: 60px;
+        height: 60px;
+        top: 0;
+    }
+    .hamburger{
+        width: 50px;
+        height: 50px;
+    }
+    .hamburger::before{
+        right: -65px;
+        top: -65px;
+    }
+    .hamburger::after{
+        width: 120px;
+        height: 120px;
+    }
+    .banner{
+        height: 80vh;
+        background-position: top left;
+        background-size: 800px;
+    }
+    .elements div{
+        width: 10px;
+        height: 10px;
+    }
+    .banner-content{
+        height: 80vh;
+    }
+    .banner-content span.small{
+        font-size: 1.8em;
+    }
+    .banner-content h1{
+        font-size: 3.8em;
+        line-height: 2.8em;
+    }
+    .banner-content h1 span::after{
+        width: 20px;
+        height: 20px;
+    }
+    .banner-content h2{
+        font-size: 2em;
+    }
+    .banner-content a{
+        font-size: 1.2em;
+    }
+    .bottom{
+        left: 20px;
+    }
+    .bottom p{
+        font-size: .8em;
+    }
+    .content{
+        background: none;
+        height: 80vh;
+    }
+    .slogan{
+        left: 20px;
+        width: 300px;
+    }
+    .slogan::after{
+        height: 50px;
+    }
+    .slogan p{
+        font-size: 1em;
+        padding: 25px 20px;
+    }
+    .bg{
+        width: 100%;
+        bottom: 100px;
+    }
+    .left-corner,.left-corner2,.left-corner3{
+        display: none;
+    }
+    .title-image{
+        position: absolute;
+        top: 80px;
+        width: 50px;
+    }
+    .content h1{
+        font-size: 3em;
+        margin-top: 40px;
+    }
+    .card-wrapper{
+        margin: 0 10px 25px;
+    }
+    .swiper-button-prev,.swiper-button-next{
+        display: none;
+    }
+}
