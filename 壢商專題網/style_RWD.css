@@ -29,10 +29,10 @@
         height: 80vh;
     }
     .banner-content span.small{
-        font-size: 1.8em;
+        font-size: 1.5em;
     }
     .banner-content h1{
-        font-size: 3.8em;
+        font-size: 3.5em;
         line-height: 2.8em;
     }
     .banner-content h1 span::after{
@@ -40,10 +40,10 @@
         height: 20px;
     }
     .banner-content h2{
-        font-size: 2em;
+        font-size: 1.8em;
     }
     .banner-content a{
-        font-size: 1.2em;
+        font-size: 1em;
     }
     .bottom{
         left: 20px;
@@ -79,7 +79,7 @@
         width: 50px;
     }
     .content h1{
-        font-size: 3em;
+        font-size: 2.8em;
         margin-top: 40px;
     }
     .card-wrapper{
