@@ -67,11 +67,7 @@
         padding: 25px 20px;
     }
     .right-corner{
-        bottom: 100px;
-        right: 50%;
-        transform: translateX(50%);
-        width: 80px;
-        height: 100px;
+        display: none;
     }
     .bg{
         width: 100%;
@@ -86,8 +82,8 @@
         width: 50px;
     }
     .content h1{
-        font-size: 2.8em;
-        margin-top: 40px;
+        font-size: 2.5em;
+        margin-top: 80px;
     }
     .card-wrapper{
         margin: 0 10px 25px;
