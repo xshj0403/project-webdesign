@@ -66,6 +66,9 @@
         font-size: 1em;
         padding: 25px 20px;
     }
+    .main-content{
+        height: 100vh;
+    }
     .right-corner{
         display: none;
     }
